@@ -1,19 +1,19 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-name = "test-product-og-shop"
+name = "test-ongraph-data"
 client_id = "daba7f7ae5c2ec7b87593d54d0710a3b"
-application_url = "https://perform-lf-occurs-algorithms.trycloudflare.com"
+application_url = "https://kim-station-wives-certificates.trycloudflare.com"
 embedded = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products"
+scopes = "write_products,read_product_listings"
 
 [auth]
 redirect_urls = [
-  "https://perform-lf-occurs-algorithms.trycloudflare.com/auth/callback",
-  "https://perform-lf-occurs-algorithms.trycloudflare.com/auth/shopify/callback",
-  "https://perform-lf-occurs-algorithms.trycloudflare.com/api/auth/callback"
+  "https://kim-station-wives-certificates.trycloudflare.com/auth/callback",
+  "https://kim-station-wives-certificates.trycloudflare.com/auth/shopify/callback",
+  "https://kim-station-wives-certificates.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
@@ -24,4 +24,4 @@ embedded = false
 
 [build]
 automatically_update_urls_on_dev = true
-dev_store_url = "test-product-fetch-app.myshopify.com"
+dev_store_url = "test-ongraph-data.myshopify.com"
