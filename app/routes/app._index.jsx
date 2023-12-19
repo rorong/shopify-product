@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { json } from "@remix-run/node";
-import { useActionData, useNavigation, useSubmit, useLoaderData } from "@remix-run/react";
+import { useActionData, useNavigation, useSubmit, useLoaderData,Link } from "@remix-run/react";
 import {
   Page,
   Layout,
@@ -10,11 +10,10 @@ import {
   BlockStack,
   Box,
   List,
-  Link,
   InlineStack,
 } from "@shopify/polaris";
 import { authenticate } from "../shopify.server";
-
+import { extractProductId } from './utils'; 
 export const loader = async ({ request }) => {
   // await authenticate.admin(request);
   const { admin } = await authenticate.admin(request);
@@ -27,6 +26,7 @@ export const loader = async ({ request }) => {
             id
             title
             handle
+            description
             resourcePublicationOnCurrentPublication {
               publication {
                 name
@@ -90,8 +90,6 @@ export const action = async ({ request }) => {
 
 export default function Index() {
   const loader = useLoaderData();
-//  const productListingData = JSON.parse(loader);
- console.log('===========================>>>>>>>>>>>>>>>>>>>>>', loader, '<<<<<<<<<<<<<<<<<<<<<<<<<<+========================')
   const nav = useNavigation();
   const actionData = useActionData();
   const submit = useSubmit();
@@ -124,10 +122,11 @@ export default function Index() {
               Fetched Products
             </Text>
             <List type="bullet">
-              {console.log('===========================>>>>>>>>>>>>>>>>>>>>>', loader.data.products.edges, '<<<<<<<<<<<<<<<<<<<<<<<<<<+========================')}
               {loader.data.products.edges.map((product) => (
                 <List.Item key={product.node.id}>
-                  {product.node.title} - {product.node.handle}
+                  <Link to={`app/product/${extractProductId(product.node.id)}`}>
+                    {product.node.title}
+                  </Link>
                 </List.Item>
               ))}
             </List>
