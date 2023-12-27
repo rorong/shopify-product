@@ -20,7 +20,7 @@ export const loader = async ({ request }) => {
   const response = await admin.graphql(`
   #graphql
     query {
-      products(first: 10, reverse: true) {
+      products(first: 50, reverse: true) {
         edges {
           node {
             id
@@ -42,6 +42,7 @@ export const loader = async ({ request }) => {
   );
 
   const productListingData = await response.json();
+  console.log("///////////////////////////////////////////////////////",productListingData.data.products.edges[0],"---------------------------------<<<<<<<<<<<<<<<<<<<<<<")
   return productListingData;
 };
 
@@ -124,7 +125,7 @@ export default function Index() {
             <List type="bullet">
               {loader.data.products.edges.map((product) => (
                 <List.Item key={product.node.id}>
-                  <Link to={`app/product/${extractProductId(product.node.id)}`}>
+                  <Link to={`/app/product/${extractProductId(product.node.id)}`}>
                     {product.node.title}
                   </Link>
                 </List.Item>
