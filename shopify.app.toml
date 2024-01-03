@@ -2,7 +2,7 @@
 
 name = "test-ongraph-data"
 client_id = "daba7f7ae5c2ec7b87593d54d0710a3b"
-application_url = "https://shopify-product.vercel.app/"
+application_url = "https://discussion-older-alone-coaching.trycloudflare.com"
 embedded = true
 
 [access_scopes]
