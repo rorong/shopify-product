@@ -12,6 +12,7 @@ RUN npm install --omit=dev
 # Remove this line if you want to run CLI commands in your container.
 RUN npm remove @shopify/app @shopify/cli
 RUN npm run build
+RUN npx prisma generate
 
 # You'll probably want to remove this in production, it's here to make it easier to test things!
 RUN rm -f prisma/dev.sqlite
