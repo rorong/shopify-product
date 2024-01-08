@@ -2,7 +2,7 @@
   "name": "product-fetch-app",
   "private": true,
   "scripts": {
-    "build": "remix build",
+    "build": "remix build && prisma generate && prisma migrate deploy",
     "predev": "prisma generate && prisma migrate deploy",
     "dev": "shopify app dev",
     "config:link": "shopify app config link",
@@ -16,8 +16,7 @@
     "setup": "prisma generate && prisma migrate deploy",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "shopify": "shopify",
-    "prisma": "prisma",
-    "postinstall": "prisma generate"
+    "prisma": "prisma"
   },
   "dependencies": {
     "@prisma/client": "^4.13.0",
